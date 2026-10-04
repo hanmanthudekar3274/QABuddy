@@ -1,0 +1,45 @@
+chunking:
+  code:
+    chunk_tokens: 400
+    overlap_tokens: 80
+    split_strategy: function_boundary  # tries AST split first, falls back to token window
+  test_cases:
+    chunk_tokens: 200
+    overlap_tokens: 30
+    rows_per_chunk: 5                  # group 5 CSV rows per chunk
+  pdf:
+    chunk_tokens: 450
+    overlap_tokens: 80
+    split_strategy: paragraph
+  markdown:
+    chunk_tokens: 400
+    overlap_tokens: 80
+    split_strategy: header_aware
+  jira:
+    chunk_tokens: 300
+    overlap_tokens: 0
+    comments_as_separate_chunks: true
+  transcript:
+    chunk_tokens: 350
+    overlap_tokens: 75
+    split_strategy: speaker_turn
+  logs:
+    chunk_tokens: 250
+    overlap_tokens: 40
+    strip_ansi: true
+    keep_log_level_prefix: true
+  default:
+    chunk_tokens: 400
+    overlap_tokens: 80
+
+source_map:
+  "01_selenium_framework": code
+  "02_playwright_framework": code
+  "03_test_cases": test_cases
+  "04_jira_tickets": jira
+  "05_company_docs": pdf
+  "06_figma_designs": default
+  "07_meeting_notes": transcript
+  "08_lucid_charts": default
+  "09_prd_srs_brd_frd": pdf
+  "10_jenkins_logs": logs

@@ -1,0 +1,9 @@
+# Edit this file to set your JIRA JQL queries.
+# Each key becomes the filename used when caching tickets in data/04_jira_tickets/
+
+queries:
+  scrum_recent: "project = SCRUM AND updated >= -90d ORDER BY updated DESC"
+  scrum_bugs: "project = SCRUM AND issuetype = Bug AND updated >= -90d ORDER BY updated DESC"
+
+# Max tickets per query (JIRA paginates at 100; pipeline handles pagination)
+max_results_per_query: 500
